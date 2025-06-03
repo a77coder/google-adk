@@ -69,7 +69,7 @@ class ToolContextCredentialStore:
     # it won't be persisted , only changes in event_action.state_delta will be
     # persisted. temp: namespace will be cleared after current run. but tool
     # want access token to be there stored across runs
-    # self.tool_context.state['oauth_key'] = f"{scheme_name}_{credential_name}_existing_exchanged_credential"
+    self.tool_context.state['oauth_key'] = f"{scheme_name}_{credential_name}_existing_exchanged_credential"
     return f"{scheme_name}_{credential_name}_existing_exchanged_credential"
 
   def get_credential(
