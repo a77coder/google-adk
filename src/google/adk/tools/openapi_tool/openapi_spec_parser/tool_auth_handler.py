@@ -69,7 +69,7 @@ class ToolContextCredentialStore:
     # it won't be persisted , only changes in event_action.state_delta will be
     # persisted. temp: namespace will be cleared after current run. but tool
     # want access token to be there stored across runs
-    
+
     print('@@@@@@@ Tool State @@@@@@ ',self.tool_context.state.to_dict())
 
     self.tool_context.state['oauth_key'] = f"{scheme_name}_{credential_name}_existing_exchanged_credential"
@@ -97,11 +97,11 @@ class ToolContextCredentialStore:
       key: str,
       auth_credential: Optional[AuthCredential],
   ):
-    if self.tool_context:
-      serializable_credential = jsonable_encoder(
-          auth_credential, exclude_none=True
-      )
-      self.tool_context.state[key] = serializable_credential
+    # if self.tool_context:
+    #   serializable_credential = jsonable_encoder(
+    #       auth_credential, exclude_none=True
+    #   )
+      self.tool_context.state[key] = 'testing'
 
   def remove_credential(self, key: str):
     del self.tool_context.state[key]
